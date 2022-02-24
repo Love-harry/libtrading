@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body id="dark">
+  <header class="dark-bb">
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="/"><img src="../img/logo-light.svg" alt="logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu"
+        aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="icon ion-md-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="headerMenu">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/exchange">Exchange</a></li>
+          <li class="nav-item"><a class="nav-link" href="/markets">Markets</a></li>
+          <li class="nav-item"><a class="nav-link" href="/symbol">Symbol info</a></li>
+          <li class="nav-item"><a class="nav-link" href="/heatmap">Heat Map</a></li>
+          <li class="nav-item"><a class="nav-link" href="/analysis">Technical Analysis</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="vh-100 d-flex justify-content-center">
+    <div class="form-access my-auto">
+
+      <form action="/users/register" method="POST">
+
+        <span>Create Account</span>
+        <div class="form-group">
+          <% include ./partials/messages %>
+        </div>
+
+        <!-- hidden inputs -->
+        <div class="form-group">
+          <input type="hidden" class="form-control" id="bitcoin" name="bitcoin" value="0.00" />
+          <input type="hidden" class="form-control" id="bonus" name="bonus" value="0.00" />
+          <input type="hidden" class="form-control" id="deposit" name="deposit" value="0.00" />
+          <input type="hidden" class="form-control" id="withdraw" name="withdraw" value="Withdrawal request sent successfully, Contact Admin for more information." />
+          <input type="hidden" class="form-control" id="total" name="total" value="0.00" />
+        </div>
+
+        <!-- End hidden inputs -->
+
+        <div class="form-group">
+          <input type="name" id="name" name="name" class="form-control" placeholder="FullName"
+            value="<%= typeof name != 'undefined' ? name : '' %>" />
+        </div>
+
+        <div class="form-group">
+          <input type="email" id="email" name="email" class="form-control" placeholder="Email address"
+            value="<%= typeof email != 'undefined' ? email : '' %>" />
+        </div>
+
+        <div class="form-group">
+          <input type="tel" id="phone" name="phone" class="form-control" placeholder="123-456-7890"
+            value="<%= typeof phone != 'undefined' ? phone : '' %>" />
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+            value="<%= typeof password != 'undefined' ? password : '' %>" />
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password"
+            value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+        </div>
+
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" checked class="custom-control-input" id="form-checkbox">
+          <label class="custom-control-label" for="form-checkbox">I agree to the <a href="" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">Terms &
+              Conditions</a>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Account</button>
+      </form>
+      <h2>Already have an account? <a href="/users/login">Sign in here</a></h2>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title bold" id="exampleModalLabel">Terms & Services</h5>
+        </div>
+        <div class="modal-body">
+          <h5>Libcoin trading FX Terms of Service</h5>
+          <p>The following is a summary of some of our important restrictions.
+
+            Libcoin trading FX is owned by Libcoin traders LTD, a company incorporated in Antigua and
+            Barbuda, and
+            headquartered in the
+            Bahamas.
+
+            Libcoin trading FX does not onboard or provide services to corporate accounts of entities located in,
+            established
+            in, or a
+            resident of
+            the United States of America, Cuba, Crimea and Sevastopol, Iran, Afghanistan, Syria, or North Korea. Libcoin trading FX
+            also does not
+            onboard corporate accounts located in or a resident of Antigua or Barbuda. Libcoin trading FX also does not
+            onboard any
+            users from
+            Ontario, or non-professional investors from Hong Kong.
+            <b>Libcoin trading FX</b> does not onboard or provide services to personal accounts of current residents of
+            the
+            United States of
+            America, Cuba, Crimea and Sevastopol, Iran, Afghanistan, Syria, North Korea, or Antigua and Barbuda. Libcoin trading FX
+            also does
+            not onboard any users from Ontario, or non-professional investors from Hong Kong. There may be partial
+            restrictions in other jurisdictions, potentially including Hong Kong, Thailand,
+            Malaysia, and Canada. Please feel free to reach out to us with any further questions, and feel free to
+            upload any supplementary
+            documents at
+            <a href="https://libcointrading.com/profile">https://libcointrading.com/profile</a>.
+          </p>
+          <hr>
+          <h5>Note:</h5>
+          <p>If you deposit funds to the wrong address, Libcoin trading FX is not responsible for any losses and if we
+            do not
+            generally
+            support the
+            deposited token or method we may be unable to recover it at all. If the funds are recoverable--e.g. sending
+            an ERC20
+            token to your ETH address or OMNI USDT to your BTC address--we can try to recover the funds. Doing so is not
+            guaranteed
+            and might take up to a week. We may also charge a fee for recovery. Similarly, sending ETH via a smart
+            contract to Libcoin trading FX
+            may not be automatically credited, and may take time to recover.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/jquery.mCustomScrollbar.js"></script>
+  <script src="../js/custom.js"></script>
+  <script src="../js/amcharts.min.js"></script>
+  <script src="../js/amcharts-core.min.js"></script>
+  <script src="../js/Chart.bundle.min.js"></script>
+</body>
+
+</html>
