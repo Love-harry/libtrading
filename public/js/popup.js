@@ -2,8 +2,4 @@ $('.custom-social-proof').hide(); notifications = ['<p class="custom-notificatio
 let noti_length = notifications.length; function getRandomInt(max) { return Math.floor(Math.random() * max); }
 console.log(getRandomInt(3)); function not() { return notifications[getRandomInt(noti_length)] }
 setInterval(function () { $(".custom-social-proof").stop().slideToggle('slow', function () { $(".custom-notification-content").replaceWith(not()); }); }, 10000); $(".custom-close").click(function () { $(".custom-social-proof").stop().slideToggle('slow'); }); $(document).ready(function () {
-    $("button").click(function () {
-        $("p").replaceWith
-            ("");
-    });
 });
