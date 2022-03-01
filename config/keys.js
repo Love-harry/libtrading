@@ -1,4 +1,4 @@
-dbPassword = 'mongodb+srv://Libcoin:Libcoin@cluster0.6nmcs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+dbPassword = 'mongodb+srv://Libcoin:bc05iv5HMuWMGTfb@cluster0.r2lkv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 module.exports = {
     mongoURI: dbPassword
