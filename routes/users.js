@@ -19,10 +19,10 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 
 // Register
 router.post('/register', (req, res) => {
-  const { name, email, phone, password, password2, bitcoin, bonus, deposit, withdraw, total } = req.body;
+  const { name, email, country, phone, password, password2, bitcoin, bonus, deposit, withdraw, total } = req.body;
   let errors = [];
 
-  if (!name || !email || !phone || !password || !password2 || !bitcoin || !bonus || !deposit || !withdraw || !total) {
+  if (!name || !email || !country || !phone || !password || !password2 || !bitcoin || !bonus || !deposit || !withdraw || !total) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -39,6 +39,7 @@ router.post('/register', (req, res) => {
       errors,
       name,
       email,
+      country,
       phone,
       password,
       password2,
@@ -56,6 +57,7 @@ router.post('/register', (req, res) => {
           errors,
           name,
           email,
+          country,
           phone,
           password,
           password2,
@@ -69,6 +71,7 @@ router.post('/register', (req, res) => {
         const newUser = new User({
           name,
           email,
+          country,
           phone,
           password,
           bitcoin,
