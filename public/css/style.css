@@ -1,5 +1,5 @@
 @import url("http://fonts.googleapis.com/css?family=Overpass:300,400,600,700&amp;display=swap");
-/* @import url("bootstrap.css"); */
+@import url("chat.css");
 @import url("bootstrap.min.css");
 @import url("ionicons.min.css");
 @import url("jquery.mCustomScrollbar.min.css");
